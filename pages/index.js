@@ -1,12 +1,14 @@
-
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
     <>
-<div>
-  hola
-  <h1>llll</h1>
-</div>
+      <Navbar/>
+      <div className="text-5xl">
+        Welcome to Next App
+      </div>
+      <Footer/>
     </>
-  )
+  );
 }
