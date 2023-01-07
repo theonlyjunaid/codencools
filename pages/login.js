@@ -1,12 +1,22 @@
 
 
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const Login = () => {
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+useEffect(() => {
+    if (window !== 'undefined') {
+        if (localStorage.getItem('usertoken')) {
+            router.push('/')
+        }
+    }
+}, [])
 
 
+    
     const handleChange = (e) => {
         if (e.target.name === 'email') setEmail(e.target.value)
         if (e.target.name === 'password') setPassword(e.target.value)
@@ -31,8 +41,9 @@ const Login = () => {
         if(json.success) {
             console.log('success')
             if(window !== 'undefined') {
-                localStorage.setItem('user', JSON.stringify(json.token))
-                localStorage.setItem('email', JSON.stringify(json.email))
+                localStorage.setItem('usertoken', JSON.stringify(json.token))
+                localStorage.setItem('useremail', JSON.stringify(json.email))
+                localStorage.setItem('username', JSON.stringify(json.name))
 
             }
         }
@@ -41,6 +52,7 @@ const Login = () => {
         }
     //    console.log(json)
     }
+
 
   return (
     <div>

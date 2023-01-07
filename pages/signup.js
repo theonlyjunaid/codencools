@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 const signup = () => {
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
@@ -27,7 +29,11 @@ const signup = () => {
         const json = await res.json()
         if (!res.ok) alert(json.message)
         else
-        alert('Account Created')
+       { alert('Account Created')
+       if(window !== 'undefined') {
+        router.push('/login')
+    }
+    }
     }
 
   return (
