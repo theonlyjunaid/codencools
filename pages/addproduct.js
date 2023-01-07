@@ -71,6 +71,8 @@ alert('Product Added')
   }
 
 
+
+
   return (
 
     <div> 
@@ -197,7 +199,7 @@ alert('Product Added')
                   </span>
                 </div>
 
-              </div>
+<div>
               <div className="bg-gray-50 px-4 py-3 text-center sm:px-6">
                 <button
                   type="submit"
@@ -206,11 +208,12 @@ alert('Product Added')
                   Add Product
                 </button>
               </div>
-            </div>
+            </div>  
           </form>
         </div>
       </div>
     </div>
+
   )
 }
 
