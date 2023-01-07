@@ -18,6 +18,10 @@ const [bargainprice, setBargainprice] = useState(product.sellprice)
  
   }
   const handleBargain= async ()=>{
+    if(localStorage.getItem('usertoken')===null){
+      alert('Please login to send bargain request')
+      return
+    }
     const res = await fetch('/api/bargain', {
       method: 'POST',
       headers: {
@@ -28,8 +32,8 @@ const [bargainprice, setBargainprice] = useState(product.sellprice)
           message:bargainprice,
           sellername:product.sellername,
           selleremail:product.selleremail,
-          buyername:localStorage.getItem('username'),
-          buyeremail:localStorage.getItem('useremail'),
+          username:localStorage.getItem('username'),
+          useremail:localStorage.getItem('useremail'),
       })
   })
   const json = await res.json()

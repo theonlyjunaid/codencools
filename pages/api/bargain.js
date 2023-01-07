@@ -3,16 +3,18 @@ import connectDB from "../../middleware/mongoose";
 
 const handler = async (req, res) => {
     if (req.method === 'POST') {
-        const { useremail, username, message,sellername,selleremail } = req.body;
-        if (!email || !name || !message) {
+const {useremail,username,message,selleremail,sellername,productslug} = req.body;
+        if (!useremail || !username || !message|| !selleremail|| !sellername|| !productslug) {
             return res.status(422).json({ message: 'Invalid email address' });
         }
         try {
             const bid = new Bid({
-                email: email,
-                name: name,
-                phone: phone,
+                useremail: useremail,
+                username: username,
+                selleremail: selleremail,
+                sellername: sellername,
                 message: message,
+                productslug: productslug,
             });
             await bid.save();
             res.status(201).json({ message: 'we have recieved your query our team will Bid you shortly' });
