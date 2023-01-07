@@ -1,6 +1,4 @@
 import { useRouter } from "next/router";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
 import Link from "next/link";
 
 function Slug() {
@@ -9,7 +7,6 @@ function Slug() {
 
   return (
     <>
-      <Navbar />
       <div className="mt-6">
         <h1 className="text-5xl text-center underline underline-offset-8">Product Name</h1>
         <div className="shop-head grid grid-cols-2 justify-center items-center">
@@ -238,7 +235,6 @@ function Slug() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
