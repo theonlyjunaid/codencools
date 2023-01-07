@@ -1,7 +1,9 @@
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
+import { useState } from 'react'
 
 function checkout() {
+   
+
+
   return (
     <div>
 

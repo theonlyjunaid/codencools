@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const sellersignup = () => {
     const router = useRouter()
@@ -30,9 +32,12 @@ const sellersignup = () => {
         const json = await res.json()
         if (!res.ok) alert(json.message)
         else
-           { alert('Account Created')
+           {
+            toast.success('Seller account created')
         if(window !== 'undefined') {
-            router.push('/addproduct')
+            setTimeout(() => {
+            router.push('/sellerlogin')
+            }, 1500)
         }
 
         }
@@ -40,6 +45,7 @@ const sellersignup = () => {
 
   return (
     <div>
+
         <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
      

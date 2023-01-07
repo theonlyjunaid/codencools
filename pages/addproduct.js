@@ -1,6 +1,9 @@
 import { useState ,useEffect} from 'react'
 import { useRouter } from 'next/router'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const addproduct = () => {
 
 
@@ -25,6 +28,7 @@ const addproduct = () => {
           const selleremail = JSON.parse(localStorage.getItem('selleremail'))
           setProduct({ ...product, sellername: sellername, selleremail: selleremail })
         }else{
+          
           router.push('/sellerlogin')
         }
     }, [])
@@ -63,7 +67,12 @@ const addproduct = () => {
     })
     .then(res=>res.json())
     .then(data=>{console.log(data)
-alert('Product Added')
+
+// alert('Product Added')
+if(data.success){
+    toast.success('Product Added')
+    // router.push('/sellerdashboard')
+}
         }
     ).catch(err=>console.log(err))
 
@@ -76,6 +85,7 @@ alert('Product Added')
   return (
 
     <div> 
+      <ToastContainer />
         <h1 className="text-4xl mt-10 text-center font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white">
           Add a Product
         </h1>

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const signup = () => {
     const router = useRouter()
     const [email, setEmail] = useState('')
@@ -29,9 +31,13 @@ const signup = () => {
         const json = await res.json()
         if (!res.ok) alert(json.message)
         else
-       { alert('Account Created')
+       { 
+        toast.success('Signup Successful')
        if(window !== 'undefined') {
+
+        setTimeout(() => {
         router.push('/login')
+        }, 1500)
     }
     }
     }

@@ -23,17 +23,17 @@ const handler = async (req, res) => {
                      
                     });
                     const newProduct = await product.save();
-                    res.status(201).json(newProduct);
+                    res.status(201).json({success:true, message: 'Product added successfully'});
                 } catch (error) {
                     res.status(400).json({ message: error.message });
                 }
             } else {
-                res.status(400).json({ message: 'Product already exists' });
+                res.status(400).json({success:false, message: 'Product already exists' });
             }
 
     }
     else {
-        res.status(400).json({ message: 'This method is not allowed' });
+        res.status(400).json({ success: false, message: 'This method is not allowed' });
     }
 
 }

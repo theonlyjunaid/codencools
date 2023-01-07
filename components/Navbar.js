@@ -9,7 +9,7 @@ import { IoBagCheckOutline } from "react-icons/io";
 import { BsFillCartDashFill } from "react-icons/bs";
 import Chat from "./Chat";
 
-function Navbar() {
+function Navbar({cart, addToCart, removeFromCart}) {
   const toggleClick = () => {
     const myCart = document.getElementById("myCart");
     if (myCart.classList.contains("hidden")) {
@@ -20,6 +20,7 @@ function Navbar() {
       myCart.classList.remove("block");
     }
   };
+
 
   const [isBid, setisBid] = useState(false);
   const handleIsBid = ()=>{
@@ -51,6 +52,7 @@ function Navbar() {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
+
 
   return (
     <>
@@ -143,13 +145,27 @@ function Navbar() {
             Products
             <span className="flex items-center">Quantity</span>
           </li>
-          <li className="flex px-10 items-center justify-between pb-4">
-            1. Product Name
-            <span className="flex items-center">
-              <AiOutlineMinusCircle onClick={handleDecrease} className="cursor-pointer" /> &nbsp; {qty}
-              &nbsp; <AiOutlinePlusCircle onClick={handleIncrease} className="cursor-pointer" />
-            </span>
-          </li>
+         { 
+           Object.keys(cart).map((item) => {
+              return (
+                <li className="flex px-10 items-center justify-between pb-4">
+               {cart[item].name}
+                <div className="flex items-center">
+                  <AiOutlineMinusCircle
+                      onClick={() => removeFromCart(cart[item].slug, 1, cart[item].sellprice, cart[item].name)}
+                    className="text-xl cursor-pointer"
+                  />
+                  <span className="mx-3">{cart[item].qty}</span>
+                  <AiOutlinePlusCircle
+                      onClick={() => addToCart(cart[item].slug, 1)}
+                    className="text-xl cursor-pointer"
+                  />
+                </div>
+              </li>
+              )
+            })
+         }
+         
         </ul>
         <Link
           href="/checkout"
