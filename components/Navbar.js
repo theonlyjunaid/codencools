@@ -7,6 +7,7 @@ import {
 import {useState,useEffect} from 'react';
 import { IoBagCheckOutline } from "react-icons/io";
 import { BsFillCartDashFill } from "react-icons/bs";
+import Chat from "./Chat";
 
 function Navbar() {
   const toggleClick = () => {
@@ -19,6 +20,11 @@ function Navbar() {
       myCart.classList.remove("block");
     }
   };
+
+  const [isBid, setisBid] = useState(false);
+  const handleIsBid = ()=>{
+    setisBid(!isBid);
+  }
 
   const [qty, setqty] = useState(0);
   const handleDecrease = ()=>{
@@ -88,7 +94,24 @@ function Navbar() {
               About
             </Link>
           </nav>
-          <button className="text-white inline-flex items-center bg-gray-800 hover:bg-gray-700 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0">
+        
+          <Link
+            href={"#"}
+            className="text-white inline-flex mx-3 items-center bg-gray-800 hover:bg-gray-700 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0"            onClick={handleIsBid}
+          >
+            Bargain
+          </Link>
+
+          <Link
+            href="#"
+            className="flex flex-row justify-around mx-3 text-white items-center bg-gray-800 hover:bg-gray-700 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0"
+            onClick={toggleClick}
+          >
+            &nbsp; Cart
+            <BsFillCartDashFill className="text-lg ml-2 cursor-pointer" />
+          </Link>
+
+          <button className="text-white mx-3 inline-flex items-center bg-gray-800 hover:bg-gray-700 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0">
             Login
             <svg
               fill="none"
@@ -102,16 +125,9 @@ function Navbar() {
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </button>
-          <Link
-            href="#"
-            className="flex flex-col justify-center items-center"
-            onClick={toggleClick}
-          >
-            <BsFillCartDashFill className="text-lg cursor-pointer" />
-            &nbsp; CART
-          </Link>
         </div>
       </header>
+      <Chat/>
       <div
         id="myCart"
         className="container bg-gray-700 z-20 p-5 text-white top-0 right-0 h-[100vh] w-1/3 hidden fixed"
