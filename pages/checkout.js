@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 function checkout() {
   return (
     <div>
-      <Navbar/>
+
         <div className="checkout px-24">
             <div className="check-head py-12">
                 <h1 className="text-center text-5xl mb-2">Checkout</h1>
@@ -31,7 +31,7 @@ function checkout() {
                 <button className="btn w-full bg-gray-800 hover:bg-gray-700 p-2 py-3 text-white rounded-lg">Proceed to Checkout 👜</button>
             </div>
         </div>
-      <Footer/>
+
     </div>
   )
 }

@@ -7,11 +7,9 @@ const SellerSchema = new mongoose.Schema({
     role: { type: String, default: 'seller' },
     description: {
         type: String,
-        required: true,
     },
     category: {
         type: String,
-        required: true,
     },
     img: {
         type: String,

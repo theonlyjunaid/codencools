@@ -1,12 +1,8 @@
-import Document from "./_document"
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-
 
 export default function Home() {
   return (
     <>
-  <Navbar/>
+
       <div className='bg-gray-300'>
   
         <section className="bg-gray-300 mb-7 md:mb-10">
@@ -103,7 +99,7 @@ export default function Home() {
 
     
 
-      <Footer/>
+
 
     </>
   );

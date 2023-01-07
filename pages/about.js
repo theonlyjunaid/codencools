@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 function about() {
   return (
     <div>
-      <Navbar />
+
       <div className="about-section">
         <section className="body-font">
           <div className="container px-5 py-12 mx-auto">
@@ -33,7 +33,6 @@ function about() {
           </div>
         </section>
       </div>
-      <Footer />
     </div>
   );
 }
