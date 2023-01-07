@@ -9,9 +9,14 @@ const handler = async (req, res) => {
         if (user) {
             res.status(400).json({ success: false, message: 'User already exists' });
         } else {
+            try {
             let u = new User({ name, email, password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString() });
             await u.save();
             res.status(200).json({ success: true, message: 'Account Created successfully Now you can login' });
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({ success: false, message: 'Something went wrong' });
+            }
         }
     }
     else {
