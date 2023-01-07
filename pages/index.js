@@ -1,10 +1,6 @@
-
-
 import Document from "./_document"
-
-
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 
 export default function Home() {
