@@ -49,9 +49,9 @@ function Navbar({cart, addToCart, removeFromCart}) {
               About
             </Link>
           </nav>
-          <button className="text-white inline-flex items-center bg-gray-700 border-0 py-1 px-3 mr-4 focus:outline-none rounded text-base mt-4 md:mt-0">
+          <Link href='/login' className="text-white inline-flex items-center bg-gray-700 border-0 py-1 px-3 mr-4 focus:outline-none rounded text-base mt-4 md:mt-0">
             Login
-          </button>
+          </Link>
           <Link
             href="#"
             className="flex justify-center items-center"
