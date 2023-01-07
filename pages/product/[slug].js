@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 import Link from "next/link";
 
 function Slug() {
@@ -11,7 +11,7 @@ function Slug() {
     <>
       <Navbar />
       <div className="mt-6">
-        <h1 className="text-5xl text-center underline underline-offset-8">Shop Name</h1>
+        <h1 className="text-5xl text-center underline underline-offset-8">Product Name</h1>
         <div className="shop-head grid grid-cols-2 justify-center items-center">
           <div className="shop-img">
             <img
@@ -20,14 +20,22 @@ function Slug() {
               alt="Reload please ..."
             />
           </div>
-          <div className="shop-about">
-            <div className="shop-about-head text-3xl font-semibold text-center mb-4 underline-offset-4 underline">About Us</div>
-            <p className="text-xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi expeditLink nobis quasi eaque voluptatum illum amet architecto reprehenderit et inventore harum in. Cupiditate doloribus aut fugiat molestias perspiciatis consequatur reprehenderit sit minus? Incidunt, doloribus necessitatibus sapiente optio odit praesentium cum sed numquam ut? Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ut consectetur aliquam eLink perferendis solutLink at temporLink assumenda. AssumendLink laudantium quiLink laboriosam architecto similique repellendus eum ipsum? Consectetur temporLink inventore esse totam dolorem similique eos. Blanditiis dolor et ipsam deleniti quasi temporibus temporLink dolore hic repellat culpLink laudantium, mollitia, veniam laborum at minus delectus nulla? Neque illum fugLink enim provident!</p>
+          <div className="shop-about max-w-xl">
+            <div className="shop-about-head text-3xl font-semibold underline-offset-4">Product Name (Price - $520)</div>
+            <p className="text-sm mb-4">Category</p>
+            <p className="text-lg pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi.</p>
+            <p className="text-lg pb-6">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi.</p>
+            <p className="text-lg pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi.</p>
+            <p className="text-lg pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi. <Link href='#' className="p-1 text-[#333] underline">Read more</Link>...</p>
+            <div className="btn">
+              <button className="bg-gray-800 py-2 px-4 text-white rounded-lg hover:bg-gray-700 mr-4 text-lg">Buy Now</button>
+              <button className="border border-gray-800 py-2 px-4 rounded-lg hover:bg-gray-700 hover:text-white text-lg">Similar Items</button>
+            </div>
           </div>
         </div>
 
         <div className="shop-prod-head text-center pb-4">
-          <h1 className="text-5xl underline underline-offset-8 py-4">Our Products</h1>
+          <h1 className="text-5xl underline underline-offset-8 py-4">More Products</h1>
         </div>
         <div className="shop-products grid grid-cols-4 gap-4 px-6">
           <div className="shop-box max-w-sm border py-2 h-[60vh] rounded-xl">
