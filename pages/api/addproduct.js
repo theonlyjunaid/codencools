@@ -3,15 +3,17 @@ import connectDB from "../../middleware/mongoose";
 
 const handler = async (req, res) => {
     if (req.method === 'POST') {
+
+
             let oldproduct = await Product.findOne({ slug: req.body.slug });
             if (!oldproduct) {
                 try {
                     const product = new Product({
                         name: req.body.name,
-                        slug: req.body.slug,
+                        slug: req.body.name + '-' + req.body.varient+ '-' + req.body.category,
                         img: req.body.img,
-                        brand: req.body.brand,
-                        price: req.body.price,
+                        basseprice: req.body.baseprice,
+                        sellprice: req.body.sellprice,
                         varient: req.body.varient,
                         category: req.body.category,
                         stock: req.body.stock,
