@@ -65,7 +65,7 @@ const [bargainprice, setBargainprice] = useState(product.sellprice)
             <p className="text-lg pb-4">{product.description }</p>
 
            <div >
-              <button onClick={() => addToCart("Slug", 1, 1000, "Product")} className="bg-gray-800 py-2 px-4 text-white rounded-lg hover:bg-gray-700 mr-4 text-lg">Buy Now</button>
+              <button onClick={() => addToCart(product.slug, 1, product.sellprice, product.name)} className="bg-gray-800 py-2 px-4 text-white rounded-lg hover:bg-gray-700 mr-4 text-lg">Buy Now</button>
               <button className="border border-gray-800 py-2 px-4 rounded-lg hover:bg-gray-700 hover:text-white text-lg" onClick={()=>{setBargain(true)}}>Bargain</button>
             </div>
             <div className={`w-[300px]  my-4 h-[40px] ${Bargain?"":"hidden"}`}>
