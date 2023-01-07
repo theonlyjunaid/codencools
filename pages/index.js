@@ -7,10 +7,10 @@ export default function Home({ products }) {
   return (
     <>
       <section className="">
-        <div className="carousel w-full">
+        <div className="carousel w-full h-[100vh]">
           <div id="slide1" className="carousel-item relative w-full">
             <img
-              src="https://source.unsplash.com/800x350/?macbook"
+              src="https://img.freepik.com/premium-vector/online-shopping-store-website-mobile-phone-design-smart-business-marketing-concept-horizontal-view-vector-illustration_62391-460.jpg?w=2000"
               className="w-full"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -20,17 +20,11 @@ export default function Home({ products }) {
               <a href="#slide2" className="btn btn-circle">
                 ❯
               </a>
-            </div>
-            <div className="px-6 py-3 bg-gray-900 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg z-10 absolute bottom-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
-              <h1 className="text-5xl mb-3 text-white">Weekly Sell: 343</h1>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl">
-                Buy Now
-              </button>
             </div>
           </div>
           <div id="slide2" className="carousel-item relative w-full">
             <img
-              src="https://source.unsplash.com/800x350/?laptop"
+              src="https://img.freepik.com/premium-vector/online-shopping-illustration-with-smartphone-shopping-store_115083-316.jpg?w=2000"
               className="w-full"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -40,52 +34,6 @@ export default function Home({ products }) {
               <a href="#slide3" className="btn btn-circle">
                 ❯
               </a>
-              <div className="px-6 py-3 bg-gray-900 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg z-10 absolute bottom-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
-                <h1 className="text-5xl mb-3 text-white">Weekly Sell: 487</h1>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div id="slide3" className="carousel-item relative w-full">
-            <img
-              src="https://source.unsplash.com/800x350/?headphones"
-              className="w-full"
-            />
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide2" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide4" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
-            <div className="px-6 py-3 bg-gray-900 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg z-10 absolute bottom-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
-              <h1 className="text-5xl mb-3 text-white">Weekly Sell: 109</h1>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl">
-                Buy Now
-              </button>
-            </div>
-          </div>
-          <div id="slide4" className="carousel-item relative w-full">
-            <img
-              src="https://source.unsplash.com/800x350/?mobile"
-              className="w-full"
-            />
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide3" className="btn btn-circle">
-                ❮
-              </a>
-              <a href="#slide1" className="btn btn-circle">
-                ❯
-              </a>
-            </div>
-            <div className="px-6 py-3 bg-gray-900 bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg z-10 absolute bottom-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
-              <h1 className="text-5xl mb-3 text-white">Weekly Sell: 91</h1>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl">
-                Buy Now
-              </button>
             </div>
           </div>
         </div>
