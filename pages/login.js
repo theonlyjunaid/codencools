@@ -1,12 +1,22 @@
 
 
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const Login = () => {
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+useEffect(() => {
+    if (window !== 'undefined') {
+        if (localStorage.getItem('usertoken')) {
+            router.push('/')
+        }
+    }
+}, [])
 
 
+    
     const handleChange = (e) => {
         if (e.target.name === 'email') setEmail(e.target.value)
         if (e.target.name === 'password') setPassword(e.target.value)
@@ -31,8 +41,9 @@ const Login = () => {
         if(json.success) {
             console.log('success')
             if(window !== 'undefined') {
-                localStorage.setItem('user', JSON.stringify(json.token))
-                localStorage.setItem('email', JSON.stringify(json.email))
+                localStorage.setItem('usertoken', JSON.stringify(json.token))
+                localStorage.setItem('useremail', JSON.stringify(json.email))
+                localStorage.setItem('username', JSON.stringify(json.name))
 
             }
         }
@@ -42,12 +53,13 @@ const Login = () => {
     //    console.log(json)
     }
 
+
   return (
     <div>
 <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
      
-      <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full bg-gray-300 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Sign in to your account

@@ -38,11 +38,15 @@ const ProductSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    seller: {
+    sellername: {
         type: String,
         required: true,
         default: 'admin',
-
+    },
+    selleremail: {
+        type: String,
+        required: true,
+        default: ''
     },
     varient: {
         type: String,
