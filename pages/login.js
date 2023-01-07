@@ -31,8 +31,9 @@ const Login = () => {
         if(json.success) {
             console.log('success')
             if(window !== 'undefined') {
-                localStorage.setItem('user', JSON.stringify(json.token))
-                localStorage.setItem('email', JSON.stringify(json.email))
+                localStorage.setItem('usertoken', JSON.stringify(json.token))
+                localStorage.setItem('useremail', JSON.stringify(json.email))
+                localStorage.setItem('username', JSON.stringify(json.name))
 
             }
         }
