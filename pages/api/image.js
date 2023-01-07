@@ -7,7 +7,6 @@ async function handler(req, res) {
             cb(null, 'public/images')
         },
         filename: function (req, file, cb) {
-            // const name = file.originalname.split(".")
             cb(null, file.originalname
             )
         }

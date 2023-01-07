@@ -52,12 +52,12 @@ function Slug() {
                 Lorem, ipsum dolor sit amet consec adipisicing elit. Asperiores
                 quam ut quae ipsum dolor.
               </p>
-              <div class="flex justify-center items-center">
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
+              <div className="flex justify-center items-center">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
                   -
                 </button>
                 <p className="mr-2">Product</p>
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
                   +
                 </button>
               </div>
@@ -85,12 +85,12 @@ function Slug() {
                 Lorem, ipsum dolor sit amet consec adipisicing elit. Asperiores
                 quam ut quae ipsum dolor.
               </p>
-              <div class="flex justify-center items-center">
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
+              <div className="flex justify-center items-center">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
                   -
                 </button>
                 <p className="mr-2">Product</p>
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
                   +
                 </button>
               </div>
@@ -118,12 +118,12 @@ function Slug() {
                 Lorem, ipsum dolor sit amet consec adipisicing elit. Asperiores
                 quam ut quae ipsum dolor.
               </p>
-              <div class="flex justify-center items-center">
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
+              <div className="flex justify-center items-center">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
                   -
                 </button>
                 <p className="mr-2">Product</p>
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
                   +
                 </button>
               </div>
@@ -151,12 +151,12 @@ function Slug() {
                 Lorem, ipsum dolor sit amet consec adipisicing elit. Asperiores
                 quam ut quae ipsum dolor.
               </p>
-              <div class="flex justify-center items-center">
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
+              <div className="flex justify-center items-center">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
                   -
                 </button>
                 <p className="mr-2">Product</p>
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
                   +
                 </button>
               </div>
@@ -184,12 +184,12 @@ function Slug() {
                 Lorem, ipsum dolor sit amet consec adipisicing elit. Asperiores
                 quam ut quae ipsum dolor.
               </p>
-              <div class="flex justify-center items-center">
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
+              <div className="flex justify-center items-center">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
                   -
                 </button>
                 <p className="mr-2">Product</p>
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
                   +
                 </button>
               </div>
@@ -217,12 +217,12 @@ function Slug() {
                 Lorem, ipsum dolor sit amet consec adipisicing elit. Asperiores
                 quam ut quae ipsum dolor.
               </p>
-              <div class="flex justify-center items-center">
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
+              <div className="flex justify-center items-center">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-l mr-2">
                   -
                 </button>
                 <p className="mr-2">Product</p>
-                <button class="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
+                <button className="bg-gray-900 text-white font-bold py-2 px-4 rounded-r mr-2">
                   +
                 </button>
               </div>
