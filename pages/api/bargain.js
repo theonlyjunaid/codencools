@@ -17,14 +17,14 @@ const {useremail,username,message,selleremail,sellername,productslug} = req.body
                 productslug: productslug,
             });
             await bid.save();
-            res.status(201).json({ message: 'we have recieved your query our team will Bid you shortly' });
+            res.status(201).json({ success: true, message: 'we have recieved your query our team will Bid you shortly' });
         } catch (error) {
-            res.status(500).json({ message: 'Something went wrong' });
+            res.status(500).json({ success: false, message: 'Something went wrong' });
         }
 
     }
     else {
-        res.status(400).json({ message: 'This method is not allowed' });
+        res.status(400).json({ success: false, message: 'This method is not allowed' });
     }
 }
 

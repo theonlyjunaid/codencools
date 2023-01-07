@@ -2,6 +2,8 @@
 
 import { useState,useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const router = useRouter()
@@ -39,11 +41,17 @@ useEffect(() => {
         })
         const json = await res.json()
         if(json.success) {
+
+            toast.success('Login Successful')
             console.log('success')
             if(window !== 'undefined') {
                 localStorage.setItem('usertoken', JSON.stringify(json.token))
                 localStorage.setItem('useremail', JSON.stringify(json.email))
                 localStorage.setItem('username', JSON.stringify(json.name))
+
+                setTimeout(() => {
+                router.push('/')
+                }, 1500)
 
             }
         }
@@ -56,6 +64,8 @@ useEffect(() => {
 
   return (
     <div>
+<ToastContainer />
+
 <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
      

@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const sellerlogin = () => {
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -27,11 +31,19 @@ const sellerlogin = () => {
         const json = await res.json()
         if (json.success) {
             console.log('success')
+            toast.success('Login Successful')
             if (window !== 'undefined') {
                 localStorage.setItem('sellertoken', JSON.stringify(json.token))
                 localStorage.setItem('selleremail', JSON.stringify(json.email))
                 localStorage.setItem('sellername', JSON.stringify(json.name))
+                setTimeout(() => {
+                    router.push('/')
+                }, 1500)
             }
+           
+
+
+
         }
         else {
             console.log('failed')
@@ -42,6 +54,7 @@ const sellerlogin = () => {
 
     return (
         <div>
+            <ToastContainer />
             <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
