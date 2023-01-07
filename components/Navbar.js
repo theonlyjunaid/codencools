@@ -4,6 +4,7 @@ import {
   AiOutlineMinusCircle,
   AiOutlinePlusCircle,
 } from "react-icons/ai";
+import {useState,useEffect} from 'react';
 import { IoBagCheckOutline } from "react-icons/io";
 import { BsFillCartDashFill } from "react-icons/bs";
 
@@ -17,9 +18,7 @@ function Navbar({cart, addToCart, removeFromCart}) {
       myCart.classList.add("hidden");
       myCart.classList.remove("block");
     }
-  }
-
-  
+  };
 
   return (
     <>
@@ -102,11 +101,13 @@ function Navbar({cart, addToCart, removeFromCart}) {
             Products
             <span className="flex items-center">Quantity</span>
           </li>
-          {Object.keys(cart).map((k) => {return <li key={k} className='flex px-10 items-center justify-between pb-4'>
-                    1. {cart[k].name}
-                    <span className='flex items-center'><AiOutlineMinusCircle onClick={()=>{removeFromCart(cart[k].itemCode, 1, 5000, cart[k].name)}} className='cursor-pointer'/> &nbsp; {cart[k].qty} &nbsp;  <AiOutlinePlusCircle onClick={()=>addToCart(cart[k].itemCode, 1, 5000, cart[k].name)} className='cursor-pointer'/></span>
-                </li>
-                })}
+          <li className="flex px-10 items-center justify-between pb-4">
+            1. Product Name
+            <span className="flex items-center">
+              <AiOutlineMinusCircle className="cursor-pointer" /> &nbsp; 2
+              &nbsp; <AiOutlinePlusCircle className="cursor-pointer" />
+            </span>
+          </li>
         </ul>
         <Link
           href="/checkout"
