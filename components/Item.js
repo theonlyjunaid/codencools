@@ -15,7 +15,7 @@ const Item = () => {
               <button>44</button>
             </div>
             <div class="purchase">
-              <button>Purchase</button>
+              <button>Buy</button>
             </div>
           </div>
         </div>
