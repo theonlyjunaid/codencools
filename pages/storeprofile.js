@@ -280,8 +280,7 @@ export default function Example() {
             <div className="border-t border-gray-200" />
           </div>
         </div>
-  
-        
+          
       </div>
     )
   }
