@@ -27,31 +27,8 @@ function Navbar({cart, addToCart, removeFromCart}) {
     setisBid(!isBid);
   }
 
-  const [qty, setqty] = useState(0);
-  const handleDecrease = ()=>{
-    if(qty>0){
-      setqty(qty-1);
-    }
-  }
-  const handleIncrease = ()=>{
-    setqty(qty+1);
-  }
 
-  const initialState = [];
-  const [cart, setCart] = useState(initialState);
 
-  useEffect(() => {
-    const cartData = JSON.parse(localStorage.getItem("cart"));
-    if (cartData) {
-      setCart(cartData);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (cart !== initialState) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  }, [cart]);
 
 
   return (
@@ -129,7 +106,10 @@ function Navbar({cart, addToCart, removeFromCart}) {
           </button>
         </div>
       </header>
-      <Chat/>
+      <div className="relative flex justify-end">
+
+         <Chat isBid={isBid}  setisBid={setisBid}/>
+      </div>
       <div
         id="myCart"
         className="container bg-gray-700 z-20 p-5 text-white top-0 right-0 h-[100vh] w-1/3 hidden fixed"
