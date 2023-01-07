@@ -2,16 +2,11 @@ import Link from 'next/link'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import mongoose from 'mongoose'
-
 import Product from '../model/Product'
 
 export default function viewshops({products}) {
-    console.log(products)
-   
-
   return (
     <>
-
         <div className="shops">
             <div className="shops-head py-2">
                 <h1 className="text-2xl text-center">These are trending shops near you ...</h1>
@@ -51,11 +46,8 @@ export default function viewshops({products}) {
 export async function getServerSideProps(context) {
     if (!mongoose.connections[0].readyState) {
         await mongoose.connect(process.env.MONGODB_URI);
-
     }
-   
     let products = await Product.find({}).lean();
-
     return {
         props: { products: JSON.parse(JSON.stringify(products))},
     }

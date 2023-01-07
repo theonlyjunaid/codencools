@@ -8,7 +8,7 @@ import {useState,useEffect} from 'react';
 import { IoBagCheckOutline } from "react-icons/io";
 import { BsFillCartDashFill } from "react-icons/bs";
 
-function Navbar() {
+function Navbar({cart, addToCart, removeFromCart}) {
   const toggleClick = () => {
     const myCart = document.getElementById("myCart");
     if (myCart.classList.contains("hidden")) {
@@ -19,32 +19,6 @@ function Navbar() {
       myCart.classList.remove("block");
     }
   };
-
-  const [qty, setqty] = useState(0);
-  const handleDecrease = ()=>{
-    if(qty>0){
-      setqty(qty-1);
-    }
-  }
-  const handleIncrease = ()=>{
-    setqty(qty+1);
-  }
-
-  const initialState = [];
-  const [cart, setCart] = useState(initialState);
-
-  useEffect(() => {
-    const cartData = JSON.parse(localStorage.getItem("cart"));
-    if (cartData) {
-      setCart(cartData);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (cart !== initialState) {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  }, [cart]);
 
   return (
     <>
@@ -130,8 +104,8 @@ function Navbar() {
           <li className="flex px-10 items-center justify-between pb-4">
             1. Product Name
             <span className="flex items-center">
-              <AiOutlineMinusCircle onClick={handleDecrease} className="cursor-pointer" /> &nbsp; {qty}
-              &nbsp; <AiOutlinePlusCircle onClick={handleIncrease} className="cursor-pointer" />
+              <AiOutlineMinusCircle className="cursor-pointer" /> &nbsp; 2
+              &nbsp; <AiOutlinePlusCircle className="cursor-pointer" />
             </span>
           </li>
         </ul>
