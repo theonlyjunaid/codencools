@@ -59,8 +59,11 @@ const handleSubmit=(e)=>{
         })
     })
     .then(res=>res.json())
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err))
+    .then(data=>{console.log(data)
+alert('Product Added')
+        }
+    ).catch(err=>console.log(err))
+
 
 }
 
