@@ -27,7 +27,7 @@ export default function viewshops() {
 
   return (
     <>
-        <Navbar/>
+
         <div className="shops">
             <div className="shops-head py-2">
                 <h1 className="text-2xl text-center">These are trending shops near you ...</h1>
@@ -36,7 +36,7 @@ export default function viewshops() {
                 {shopsList}
             </div>
         </div>
-        <Footer/>
+
     </>    
   )
 }
