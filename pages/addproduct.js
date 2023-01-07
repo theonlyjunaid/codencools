@@ -1,6 +1,9 @@
 const addproduct = () => {
   return (
     <div> 
+        <h1 className="text-4xl mt-10 text-center font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white">
+          Add a Product
+        </h1>
         <div className="md:grid md:grid-cols-3 md:gap-6 md:mx-[20%] md:mt-[2%]">
             <div className="mt-5 md:col-span-3 md:mt-0">
               <form action="#" method="POST">
