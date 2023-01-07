@@ -9,7 +9,40 @@ import Bargain from "../../../components/Bargain";
 
 function Slug({product,products}) {
 
-  // const [Bargain, setBargain] = useState(false)
+  const [Bargain, setBargain] = useState(false)
+const [bargainprice, setBargainprice] = useState(product.sellprice)
+  const handleChange=(e)=>{
+    if (e.target.name ==='bargain'){
+      setBargainprice(e.target.value)
+    }
+ 
+  }
+  const handleBargain= async ()=>{
+    const res = await fetch('/api/bargain', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        productslug:product.slug,
+          message:bargainprice,
+          sellername:product.sellername,
+          selleremail:product.selleremail,
+          buyername:localStorage.getItem('username'),
+          buyeremail:localStorage.getItem('useremail'),
+      })
+  })
+  const json = await res.json()
+  if(json.success) {
+      console.log('success')
+      if(window !== 'undefined') {
+          alert('Bargain request sent')
+          setBargain(false)
+      }
+
+
+    }
+  }
   console.log(products);
   return (
     <>
@@ -31,8 +64,14 @@ function Slug({product,products}) {
               <button className="bg-gray-800 py-2 px-4 text-white rounded-lg hover:bg-gray-700 mr-4 text-lg">Buy Now</button>
               <button className="border border-gray-800 py-2 px-4 rounded-lg hover:bg-gray-700 hover:text-white text-lg" onClick={()=>{setBargain(true)}}>Bargain</button>
             </div>
-            <div>
-<Bargain  />
+            <div className={`w-[300px]  my-4 h-[40px] ${Bargain?"":"hidden"}`}>
+              <div className='flex relative '>
+
+                <input type="text" onChange={handleChange} name='bargain' className='border border-black rounded-md w-full h-[40px] px-3' placeholder='recommended price : 299' />
+                <div className='bg-green-400 w-max px-1 absolute right-2 my-2 hover:bg-green-500 cursor-pointer rounded-sm fl' onClick={handleBargain}>
+                  Send
+                </div>
+              </div>
             </div>
           </div>
         </div>
