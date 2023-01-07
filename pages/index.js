@@ -1,10 +1,16 @@
 
+
 import Document from "./_document"
+
+
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 
 export default function Home() {
   return (
     <>
+  <Navbar/>
       <div className='bg-gray-300'>
         <header className="bg-gray-300 text-gray-600 body-font mb-7 md:mb-10 border-b-2 border-blue-600">
           <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -119,6 +125,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+    
+
+      <Footer/>
+
     </>
-  )
+  );
 }
