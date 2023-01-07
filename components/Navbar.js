@@ -5,6 +5,7 @@ import {
   AiOutlinePlusCircle,
 } from "react-icons/ai";
 import { BsFillCartDashFill } from "react-icons/bs";
+import Chat from "./Chat";
 
 function Navbar({cart, addToCart, removeFromCart}) {
   const toggleClick = () => {
@@ -17,6 +18,16 @@ function Navbar({cart, addToCart, removeFromCart}) {
       myCart.classList.remove("block");
     }
   };
+
+
+  const [isBid, setisBid] = useState(false);
+  const handleIsBid = ()=>{
+    setisBid(!isBid);
+  }
+
+
+
+
 
   return (
     <>
@@ -49,6 +60,7 @@ function Navbar({cart, addToCart, removeFromCart}) {
               Add Product
             </Link>
           </nav>
+
           <Link href='/login' className="text-white inline-flex items-center bg-gray-700 border-0 py-1 px-3 mr-4 focus:outline-none rounded text-base mt-4 md:mt-0">
             Login
           </Link>
@@ -60,8 +72,13 @@ function Navbar({cart, addToCart, removeFromCart}) {
             <BsFillCartDashFill className="text-lg cursor-pointer" />
             &nbsp; CART
           </Link>
+
         </div>
       </header>
+      <div className="relative flex justify-end">
+
+         <Chat isBid={isBid}  setisBid={setisBid}/>
+      </div>
       <div
         id="myCart"
         className="container bg-gray-700 z-20 p-5 text-white top-0 right-0 h-[100vh] w-1/3 hidden fixed"
@@ -77,13 +94,27 @@ function Navbar({cart, addToCart, removeFromCart}) {
             Products
             <span className="flex items-center">Quantity</span>
           </li>
-          <li className="flex px-10 items-center justify-between pb-4">
-            1. Product Name
-            <span className="flex items-center">
-              <AiOutlineMinusCircle className="cursor-pointer" /> &nbsp; 2
-              &nbsp; <AiOutlinePlusCircle className="cursor-pointer" />
-            </span>
-          </li>
+         { 
+           Object.keys(cart).map((item) => {
+              return (
+                <li className="flex px-10 items-center justify-between pb-4">
+               {cart[item].name}
+                <div className="flex items-center">
+                  <AiOutlineMinusCircle
+                      onClick={() => removeFromCart(cart[item].slug, 1, cart[item].sellprice, cart[item].name)}
+                    className="text-xl cursor-pointer"
+                  />
+                  <span className="mx-3">{cart[item].qty}</span>
+                  <AiOutlinePlusCircle
+                      onClick={() => addToCart(cart[item].slug, 1)}
+                    className="text-xl cursor-pointer"
+                  />
+                </div>
+              </li>
+              )
+            })
+         }
+         
         </ul>
         <Link
           href="/checkout"

@@ -1,18 +1,22 @@
+
 import Item from "../components/Item";
 import mongoose from "mongoose";
 import Link from "next/link";
 import Product from "../model/Product";
 
 export default function Home({ products }) {
+
   return (
     <>
       <section className="">
         <div className="carousel w-full h-[100vh]">
           <div id="slide1" className="carousel-item relative w-full">
+
             <img
               src="https://img.freepik.com/premium-vector/online-shopping-store-website-mobile-phone-design-smart-business-marketing-concept-horizontal-view-vector-illustration_62391-460.jpg?w=2000"
               className="w-full"
             />
+
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
               <a href="#slide4" className="btn btn-circle">
                 ❮
@@ -23,6 +27,7 @@ export default function Home({ products }) {
             </div>
           </div>
           <div id="slide2" className="carousel-item relative w-full">
+
             <img
               src="https://img.freepik.com/premium-vector/online-shopping-illustration-with-smartphone-shopping-store_115083-316.jpg?w=2000"
               className="w-full"
@@ -34,6 +39,7 @@ export default function Home({ products }) {
               <a href="#slide3" className="btn btn-circle">
                 ❯
               </a>
+
             </div>
           </div>
         </div>

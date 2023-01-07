@@ -1,6 +1,9 @@
 import { useState ,useEffect} from 'react'
 import { useRouter } from 'next/router'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const addproduct = () => {
 
 
@@ -25,6 +28,7 @@ const addproduct = () => {
           const selleremail = JSON.parse(localStorage.getItem('selleremail'))
           setProduct({ ...product, sellername: sellername, selleremail: selleremail })
         }else{
+          
           router.push('/sellerlogin')
         }
     }, [])
@@ -63,7 +67,12 @@ const addproduct = () => {
     })
     .then(res=>res.json())
     .then(data=>{console.log(data)
-alert('Product Added')
+
+// alert('Product Added')
+if(data.success){
+    toast.success('Product Added')
+    // router.push('/sellerdashboard')
+}
         }
     ).catch(err=>console.log(err))
 
@@ -76,6 +85,7 @@ alert('Product Added')
   return (
 
     <div> 
+      <ToastContainer />
         <h1 className="text-4xl mt-10 text-center font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white">
           Add a Product
         </h1>
@@ -92,7 +102,7 @@ alert('Product Added')
                         </div>
                       </div>
                    
-                    </div>  
+
 
                     <div>
                       <label htmlFor="product" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
@@ -101,7 +111,7 @@ alert('Product Added')
                   </div>
 
                 </div>
-                <div>
+
                   <label htmlFor="about" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                   <div className="mt-1">
                     <textarea
@@ -113,7 +123,7 @@ alert('Product Added')
                       defaultValue={''}
                     />
                   </div>
-                </div>
+                
 
                 <div className="grid grid-cols-4 gap-6">
                   <div className="col-span-3 sm:col-span-2">
@@ -199,7 +209,7 @@ alert('Product Added')
                   </span>
                 </div>
 
-<div>
+
               <div className="bg-gray-50 px-4 py-3 text-center sm:px-6">
                 <button
                   type="submit"
@@ -207,8 +217,9 @@ alert('Product Added')
                 >
                   Add Product
                 </button>
-              </div>
+
             </div>  
+            </div>
           </form>
         </div>
       </div>

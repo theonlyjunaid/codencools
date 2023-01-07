@@ -20,7 +20,7 @@ const handler = async (req, res) => {
         }
     }
     else {
-        res.status(400).json({ message: 'This method is not allowed' });
+        res.status(400).json({ success: false, message: 'This method is not allowed' });
     }
 }
 
