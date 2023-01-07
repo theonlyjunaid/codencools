@@ -1,4 +1,4 @@
-
+import Item from "../components/Item"
 export default function Home() {
   return (
     <>
@@ -230,10 +230,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-
-
+      <div className="flex flex-row flex-wrap justify-around px-[10%]">
+        <Item />
+        <Item />
+        <Item />
+      </div>
     </>
   );
 }
