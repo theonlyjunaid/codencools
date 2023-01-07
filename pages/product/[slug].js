@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-function Slug() {
+function Slug({addToCart}) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -25,7 +25,7 @@ function Slug() {
             <p className="text-lg pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi.</p>
             <p className="text-lg pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eius ipsum, vitae, officiLink omnis eveniet animi. <Link href='#' className="p-1 text-[#333] underline">Read more</Link>...</p>
             <div className="btn">
-              <button className="bg-gray-800 py-2 px-4 text-white rounded-lg hover:bg-gray-700 mr-4 text-lg">Buy Now</button>
+              <button onClick={() => addToCart(slug, 1, 1000, "Product Name")} className="bg-gray-800 py-2 px-4 text-white rounded-lg hover:bg-gray-700 mr-4 text-lg">Add to Cart</button>
               <button className="border border-gray-800 py-2 px-4 rounded-lg hover:bg-gray-700 hover:text-white text-lg">Similar Items</button>
             </div>
           </div>
