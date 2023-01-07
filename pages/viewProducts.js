@@ -22,7 +22,7 @@ export default function viewshops({products}) {
         return(
             <Link href='/product/123' className="shop-box max-w-sm border py-2 h-[62vh] rounded-xl" key={product}>
                 <div className="shop-img h-[50%]">
-                    <img src={product.image} className='h-full' alt="Reload please ..." />
+                    <img src={product.img} className='h-full' alt="Reload please ..." />
                 </div> <hr />
                 <div className="shop-data h-[50%] pt-4 px-4">
                     <h1 className="shop-name text-4xl text-center pb-1">{product.name}</h1>

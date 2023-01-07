@@ -1,40 +1,87 @@
-import Product from "../../model/Product";
+import multer from 'multer';
 import connectDB from "../../middleware/mongoose";
+import Product from '../../model/Product';
 
-const handler = async (req, res) => {
-    if (req.method === 'POST') {
+async function handler(req, res) {
+    if(req.method === 'POST'){
+
+        let img ;
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, 'public/images')
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.originalname
+            )
+        }
+    })
+
+    const upload = multer({
+        storage: storage
+    });
+
+    function runMiddleware(req, res, fn) {
+        return new Promise((resolve, reject) => {
 
 
-            let oldproduct = await Product.findOne({ slug: req.body.slug });
-            if (!oldproduct) {
-                try {
-                    const product = new Product({
-                        name: req.body.name,
-                        slug: req.body.name + '-' + req.body.varient+ '-' + req.body.category,
-                        img: req.body.img,
-                        basseprice: req.body.baseprice,
-                        sellprice: req.body.sellprice,
-                        varient: req.body.varient,
-                        category: req.body.category,
-                        stock: req.body.stock,
-                        seller: req.body.seller,
-                        description: req.body.description,
-                     
-                    });
-                    const newProduct = await product.save();
-                    res.status(201).json(newProduct);
-                } catch (error) {
-                    res.status(400).json({ message: error.message });
+            fn(req, res, (result) => {
+                if (result instanceof Error) {
+                    return reject(result)
                 }
-            } else {
-                res.status(400).json({ message: 'Product already exists' });
-            }
-
-    }
-    else {
-        res.status(400).json({ message: 'This method is not allowed' });
+                return resolve(result)
+            })
+        })
     }
 
+    try {
+        await runMiddleware(req, res, upload.single("image"))
+    } catch (e) {
+        /* handle error */
+        console.log(e)
+        res.status(400).json({ success: false, message: 'Something went wrong 1' });
+    }
+    // img = req.file?.path.split("/")[1] + "/" + req.file?.path.split("/")[2]
+    console.log(req.file)
+if(img){
+
+    // const oldProduct = await Product.findOne({ slug: req.body.name+"-"+req.body.category+"-"+req.body.sellername });
+if(1){
+    const product = new Product({
+        // name: req.body.name,
+        img: img,
+        // slug: req.body.name+"-"+req.body.category+"-"+req.body.sellername,
+        // sellprice: req.body.sellprice,
+        // baseprice: req.body.baseprice,
+        // description: req.body.description,
+        // varient: req.body.varient,
+        // category: req.body.category,
+        // stock: req.body.stock,
+        // sellername: req.body.sellername,
+        // selleremail: req.body.selleremail,
+    });
+
+
+
+    try {
+        await product.save();
+        res.status(200).json({ success: true, message: 'Product Added successfully' });
+    }
+    catch (e) {
+        console.log(e)
+        res.status(400).json({ success: false, message: 'Something went wrong' });
+    }
 }
+else{
+    res.status(400).json({ success: false, error: 'Product already exists' });
+}
+}
+}
+}
+
+export const config = {
+    api: {
+        bodyParser: false,
+    },
+};
 
 export default connectDB(handler);
