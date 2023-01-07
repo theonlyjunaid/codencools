@@ -12,7 +12,7 @@ const handler = async (req, res) => {
             let decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
             if (req.body.email === seller.email && req.body.password === decryptedPassword) {
                 let token = jwt.sign({ name: seller.name, email: seller.email }, process.env.JWT_SECRET, { expiresIn: '2d' });
-                res.status(200).json({ success: true, token, email: seller.email });
+                res.status(200).json({ success: true, token, email: seller.email,name:seller.name });
             }
             else {
                 res.status(200).json({ success: false, error: 'Invalid credentials' });

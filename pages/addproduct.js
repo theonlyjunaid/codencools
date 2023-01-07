@@ -1,17 +1,36 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
+import { useRouter } from 'next/router'
 
 const addproduct = () => {
-  const [product, setProduct] = useState({
-    name: '',
-    description: '',
-    sellprice: '',
-    baseprice: '',
-    category: '',
-    img: '',
-    stock: '',
-    seller: 'junaid',
-    varient: '',
-  })
+
+
+  const router = useRouter()
+
+    const [product, setProduct] = useState({
+        name: '',
+        description: '',
+        sellprice: '',
+        baseprice: '',
+        category: '',
+        img: '',
+        stock: '',
+        sellername: '',
+        selleremail: '',
+        varient: '',
+    })
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('sellertoken'))
+        if (user) {
+          const sellername = JSON.parse(localStorage.getItem('sellername'))
+          const selleremail = JSON.parse(localStorage.getItem('selleremail'))
+          setProduct({ ...product, sellername: sellername, selleremail: selleremail })
+        }else{
+          router.push('/sellerlogin')
+        }
+    }, [])
+    
+
+
 
 
   const handlechange = (e) => {
@@ -23,42 +42,56 @@ const addproduct = () => {
 
     e.preventDefault()
     console.log(product)
-    fetch('/api/addproduct', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: product.name,
-        description: product.description,
-        sellprice: product.sellprice,
-        baseprice: product.baseprice,
-        category: product.category,
-        img: product.img,
-        stock: product.stock,
-        seller: product.seller,
-        varient: product.varient,
-      })
+
+    fetch('/api/addproduct',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+            name:product.name,
+            description:product.description,
+            sellprice:product.sellprice,
+            baseprice:product.baseprice,
+            category:product.category,
+            img:product.img,
+            stock:product.stock,
+            sellername:product.sellername,
+            selleremail:product.selleremail,
+            varient:product.varient,
+        })
     })
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err))
+    .then(res=>res.json())
+    .then(data=>{console.log(data)
+alert('Product Added')
+        }
+    ).catch(err=>console.log(err))
+
 
   }
 
 
   return (
-    <div>
-      <h1 className="text-4xl mt-10 text-center font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white">
-        Add a Product
-      </h1>
-      <div className="md:grid md:grid-cols-3 md:gap-6 md:mx-[20%] md:mt-[2%] border-2 border-gray-300 px-4 py-2 rounded-lg">
-        <div className="mt-5 md:col-span-3 md:mt-0">
-          <form onSubmit={handleSubmit}>
-            <div className="shadow-xl sm:overflow-hidden sm:rounded-md">
-              <div className="space-y-6 bg-slate-50 px-4 py-5 sm:p-6">
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="col-span-3 sm:col-span-3">
+
+    <div> 
+        <h1 className="text-4xl mt-10 text-center font-bold leading-tight tracking-tight text-gray-900 md:text-4xl dark:text-white">
+          Add a Product
+        </h1>
+        <div className="md:grid md:grid-cols-3 md:gap-6 md:mx-[20%] md:mt-[2%]">
+            <div className="mt-5 md:col-span-3 md:mt-0">
+              <form onSubmit={handleSubmit}>
+                <div className="shadow-xl sm:overflow-hidden sm:rounded-md">
+                  <div className="space-y-6 bg-slate-50 px-4 py-5 sm:p-6">
+                    <div className="grid grid-cols-3 gap-6">
+                      <div className="col-span-3 sm:col-span-3">
+                        <div>
+                            <label htmlFor="name"  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
+                      <input  type="text"  onChange={handlechange} name="name" id="product" className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Zoxie" required=""/>
+                        </div>
+                      </div>
+                   
+                    </div>  
+
                     <div>
                       <label htmlFor="product" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
                       <input handlechange type="text" onChange={handlechange} name="name" id="product" className="bg-white border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Zoxie" required="" />

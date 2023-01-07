@@ -17,7 +17,8 @@ const handler = async (req, res) => {
                         varient: req.body.varient,
                         category: req.body.category,
                         stock: req.body.stock,
-                        seller: req.body.seller,
+                        sellername: req.body.sellername,
+                        selleremail: req.body.selleremail,
                         description: req.body.description,
                      
                     });

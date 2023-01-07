@@ -28,9 +28,9 @@ const sellerlogin = () => {
         if (json.success) {
             console.log('success')
             if (window !== 'undefined') {
-                localStorage.setItem('user', JSON.stringify(json.token))
-                localStorage.setItem('email', JSON.stringify(json.email))
-
+                localStorage.setItem('sellertoken', JSON.stringify(json.token))
+                localStorage.setItem('selleremail', JSON.stringify(json.email))
+                localStorage.setItem('sellername', JSON.stringify(json.name))
             }
         }
         else {
