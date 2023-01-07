@@ -15,16 +15,16 @@ const ProductSchema = new mongoose.Schema({
         required: true,
     },
 
-    price: {
+    sellprice: {
+        type: Number,
+        required: true,
+    },
+    basseprice: {
         type: Number,
         required: true,
     },
 
     category: {
-        type: String,
-        required: true,
-    },
-    brand:{
         type: String,
         required: true,
     },
@@ -41,6 +41,7 @@ const ProductSchema = new mongoose.Schema({
     seller: {
         type: String,
         required: true,
+        default: 'admin',
 
     },
     varient: {
